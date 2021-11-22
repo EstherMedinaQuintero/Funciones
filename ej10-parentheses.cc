@@ -12,7 +12,9 @@
 #include <iostream>
 #include <cstring>
 
-// @brief Esta función escribe el mensaje inicial con la explicación del programa.
+/**
+ * @brief Esta función escribe el mensaje inicial con la explicación del programa.
+ */
 int MensajeInicial() {
   std::cout << "Este programa indica si un string tiene una a o no." << std::endl;
   return 0;

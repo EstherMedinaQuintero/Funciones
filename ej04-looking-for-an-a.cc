@@ -12,13 +12,19 @@
 #include <iostream>
 #include <cstring>
 
-// @brief Esta función escribe el mensaje inicial con la explicación del programa.
+/**
+ * @brief Esta función escribe el mensaje inicial con la explicación del programa.
+ */
 int MensajeInicial() {
   std::cout << "Este programa indica si un string tiene una a o no." << std::endl;
   return 0;
 }
 
-// @brief Esta función comprueba si el string introducido contiene alguna a.
+/**
+ * @brief Esta función comprueba si el string introducido contiene alguna a.
+ * @param frase_introducida: String que se comprueba.
+ * @return Devuelve verdadero si tiene una y falso si no.
+ */
 bool ContieneAlgunaA(const std::string& frase_introducida) {
   const char kAMinus{'a'};
   bool resultado{false};

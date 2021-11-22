@@ -12,14 +12,19 @@
 #include <iostream>
 #include <iomanip>
 
-// @brief Esta función escribe el mensaje inicial con la explicación del programa
+/**
+ * @brief Esta función escribe el mensaje inicial con la explicación del programa.
+ */
 int MensajeInicial() {
   std::cout << "Este programa muestra el n-esimo numero armonico." << std::endl;
   return 0;
 }
 
-// @brief Esta función devuelve un número armónico
-// @param interaciones Hasta donde quiere llegar de la serie armónica
+/**
+ * @brief Esta función devuelve un número armónico.
+ * @param iteraciones: Número de iteraciones que tiene que hacer hasta llegar al armónico.
+ * @return Devuelve el armónico.
+ */
 double SerieArmonica(const int iteraciones) {
   double numero_armonico{0};
   for (int contador{1}; contador <= iteraciones; ++contador) {

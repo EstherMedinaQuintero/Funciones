@@ -11,24 +11,26 @@
 
 #include <iostream>
 
-// @brief Esta función escribe el mensaje inicial con la explicación del programa.
+/**
+ * @brief Esta función escribe el mensaje inicial con la explicación del programa.
+ */
 int MensajeInicial() {
   std::cout << "Este programa muestra los divisores de un numero." << std::endl;
   return 0;
 }
 
-// @brief Esta función muestra los divisores de un número en order creciente.
-// @param numero Es el número del que queremos buscar divisores.
+/**
+ * @brief Esta función muestra los divisores de un número en order creciente.
+ * @param numero: Es el número del que queremos buscar divisores.
+ * @return No devuelve nada.
+ */
 int Divisores(const int numero) {
   int contador;
-  // En este bucle se revisan los divisores hasta la raíz.
   for (contador = 1; (contador * contador) < numero; contador++) {
     if (numero % contador == 0) {
       std::cout << " " << contador;
     }
   }
-  // En este bucle se revisar los divisores desde la raíz hasta el número.
-  // Añadí la segunda condición del if para evitar que se repitan divisores.
   for ( ; contador >= 1; contador--) {
     if ((numero % contador == 0) and (numero / contador != contador - 1)) {
       std::cout << " " << numero / contador;

@@ -12,14 +12,20 @@
 #include <iostream>
 #include <iomanip>
 
-// @brief Esta función escribe el mensaje inicial con la explicación del programa
+/**
+ * @brief Esta función escribe el mensaje inicial con la explicación del programa.
+ */
 int MensajeInicial() {
   std::cout << "Este programa muestra la resta de dos numeros armonicos." << std::endl;
   return 0;
 }
 
-// @brief Esta función devuelve la resta de dos numeros armonicos.
-// @param primer_armonico, segundo_armonico Los números a restar.
+/**
+ * @brief Esta función devuelve la resta de dos numeros armónicos.
+ * @param primer_armonico: El mayor de los dos armónicos.
+ * @param segundo_armonico: El menor de los dos armónicos.
+ * @return Devuelve el armónico del mayor menos el menor.
+ */
 double RestaDeArmonicos(const int primer_armonico, const int segundo_armonico) {
   double numero_armonico{0};
   for (int contador{segundo_armonico + 1}; contador <= primer_armonico; ++contador) {

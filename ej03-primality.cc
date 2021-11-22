@@ -11,14 +11,19 @@
 
 #include <iostream>
 
-// @brief Esta función escribe el mensaje inicial con la explicación del programa.
+/**
+ * @brief Esta función escribe el mensaje inicial con la explicación del programa.
+ */
 int MensajeInicial() {
   std::cout << "Este programa indica si un numero es primo o no." << std::endl;
   return 0;
 }
 
-// @brief Esta función comprueba si un número es primo o no
-// @param numero Es el número a comprobar
+/**
+ * @brief Esta función comprueba si un número es primo o no.
+ * @param numero: Es el número a comprobar.
+ * @return Devuelve verdadero si es primo y falso si no.
+ */
 bool EsPrimo(const int& numero) {
   if (numero <= 3) {
     return numero > 1;
