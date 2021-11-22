@@ -5,52 +5,79 @@
  * Informática Básica
  *
  * @author Esther M. Quintero
- * @date 21 Nov 2021
- * @brief Programa que muestra si una secuencia de paréntesis está bien dada.
+ * @date 22 Nov 2021
+ * @brief Programa que comprueba si una serie de paréntesis están bien cerrados.
  */
 
 #include <iostream>
 #include <cstring>
 
-// @brief Esta función escribe el mensaje inicial con la explicación del programa
+// @brief Esta función escribe el mensaje inicial con la explicación del programa.
 int MensajeInicial() {
-  std::cout << "Este programa muestra si una secuencia de parentesis esta bien dada." << std::endl;
+  std::cout << "Este programa indica si un string tiene una a o no." << std::endl;
   return 0;
 }
 
-// @brief Esta función separa un string por los espacios
-// @param frase Es el string que queremos separar
-bool CompruebaParentesis(std::string& frase) {
-  const char KParentesisAbierto('(');
-  const char KParentesisCerrado(')');
-  while (frase.find(KParentesisAbierto) != std::string::npos) { // Mientras encontremos uno abierto
-    if (frase.find(KParentesisCerrado) == std::string::npos) { // Si encontramos uno abierto pero no uno cerrado, pa' fuera
-      return false;
-    }
-    if (frase.find(KParentesisAbierto) < frase.find(KParentesisCerrado)) { // Y siempre que el abierto esté antes que el cerrado
-      frase.erase(frase.find(KParentesisAbierto), 1); // Quitamos uno de los abiertos
-      frase.erase(frase.find(KParentesisCerrado), 1); // Quitamos uno de los cerrados
-    } else { // Si el abierto y el cerrado están al revés, pa' fuera
-      return false;
-    }
-  }
-  if (frase == "") {
-    return true;
-  }
-  return false; // Si acabamos sin problemas, es que estaba chachi
-}
-
-int main() {
-  // MensajeInicial()
-  std::string mensaje_introducido;
-  std::cin >> mensaje_introducido;
-  if (mensaje_introducido == "") {
+/**
+ * @brief Comprueba si el nuevo paréntesis es abierto.
+ * @param nuevo_parentesis: Paréntesis que comprueba.
+ * @return Devuelve 1 si es abierto y 0 si no.
+ */
+int CuentaParentesisAbiertos(const char nuevo_parentesis) {
+  int letra{nuevo_parentesis};
+  if (letra == '(') {
+    return 1;
+  } else {
     return 0;
   }
-  if (CompruebaParentesis(mensaje_introducido)) {
+}
+
+/**
+ * @brief Comprueba si el nuevo paréntesis es cerrado.
+ * @param nuevo_parentesis: Paréntesis que comprueba.
+ * @return Devuelve 1 si es cerrado y 0 si no.
+ */
+int CuentaParentesisCerrados(const char nuevo_parentesis) {
+  int letra{nuevo_parentesis};
+  if (letra == ')') {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+/**
+ * @brief Imprime la solución (si los paréntesis están bien cerrados o no).
+ * @param bien_cerrados: Booleano que indica si están bien cerrados o no.
+ * @return No devuelve nada.
+ */
+void ImprimeSolucion(const bool bien_cerrados) {
+  if (bien_cerrados == true) {
     std::cout << "yes" << std::endl;
   } else {
     std::cout << "no" << std::endl;
   }
+}
+
+int main() {
+  // MensajeInicial()
+  int parentesis_abiertos{0};
+  int parentesis_cerrados{0};
+  bool estan_bien_cerrados{true};
+  char ultima_letra_introducida;
+  while (std::cin.peek() != '\n') {
+    char nueva_letra;
+    std::cin >> nueva_letra;
+    ultima_letra_introducida = nueva_letra;
+    if (nueva_letra == ')' && parentesis_abiertos == parentesis_cerrados) {
+      estan_bien_cerrados = false;
+    }
+    parentesis_abiertos += CuentaParentesisAbiertos(nueva_letra);
+    parentesis_cerrados += CuentaParentesisCerrados(nueva_letra);
+  }
+  if (ultima_letra_introducida == '(' || parentesis_abiertos != parentesis_cerrados) {
+    estan_bien_cerrados = false;
+  }
+  ImprimeSolucion(estan_bien_cerrados);
   return 0;
 }

@@ -10,7 +10,6 @@
  */
 
 #include <iostream>
-#include <cmath>
 
 // @brief Esta función escribe el mensaje inicial con la explicación del programa.
 int MensajeInicial() {
@@ -21,10 +20,13 @@ int MensajeInicial() {
 // @brief Esta función comprueba si un número es primo o no
 // @param numero Es el número a comprobar
 bool EsPrimo(const int& numero) {
-  if ((numero <= 1) or (numero == 4)) {
-    return false; 
-  } 
-  for (int contador{2}; contador * contador < numero; ++contador) {
+  if (numero <= 3) {
+    return numero > 1;
+  }
+  if (numero % 2 == 0 || numero % 3 == 0) {
+    return false;
+  }
+  for (int contador{5}; contador * contador <= numero; ++contador) {
     if (numero % contador == 0) {
       return false;
     }
@@ -39,6 +41,9 @@ int main() {
   for (int contador{0}; contador < cantidad_de_numeros; ++contador) {
     int numero_introducido;
     std::cin >> numero_introducido;
+    if (numero_introducido < 0) {
+      return 0;
+    }
     std::cout << numero_introducido;
     if (EsPrimo(numero_introducido)) {
       std::cout << " is prime" << std::endl;
