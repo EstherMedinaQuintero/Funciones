@@ -23,7 +23,6 @@ int main() {
   // MensajeInicial()
   int posicion_pedida;
   int numero_introducido;
-  int posicion{1};
   std::cin >> posicion_pedida;
   for (int contador{0}; contador < posicion_pedida; ++contador) {
     std::cin >> numero_introducido;

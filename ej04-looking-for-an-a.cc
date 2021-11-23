@@ -28,7 +28,7 @@ int MensajeInicial() {
 bool ContieneAlgunaA(const std::string& frase_introducida) {
   const char kAMinus{'a'};
   bool resultado{false};
-  for (int contador{0}; contador < frase_introducida.length(); ++contador) {
+  for (int contador{0}; contador < int(frase_introducida.length()); ++contador) {
     if (frase_introducida[contador] == kAMinus) {
       resultado = true;
     }
