@@ -1,4 +1,4 @@
-MAINS = three-words divisors primality looking harmonic-one harmonic-two position ith aproximation parentheses
+MAINS = three-words divisors primality looking harmonic-one harmonic-two position ith aproximation parentheses palindrome perfect-number
 
 all: $(MAINS)
 
@@ -23,6 +23,11 @@ aproximation: ej09-approximation-of-e.cc
 	g++ -Wall -std=c++14 -o $@ $^
 parentheses: ej10-parentheses.cc
 	g++ -Wall -std=c++14 -o $@ $^
+palindrome: ej11-is-palindrome.cc
+	g++ -Wall -std=c++14 -o $@ $^
+perfect-number: ej12-perfect-number
+	g++ -Wall -std=c++14 -o $@ $^
+
 
 clean:
-	rm -f three-words divisors primality looking harmonic-one harmonic-two position ith aproximation parentheses
+	rm -f three-words divisors primality looking harmonic-one harmonic-two position ith aproximation parentheses palindrome perfect-number
