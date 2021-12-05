@@ -27,13 +27,16 @@ int MensajeInicial() {
  * @return bool Devuelve verdadero si es palíndromo.
  */
 bool is_palindrome(const std::string& palabra_introducida) {
-  if (int(palabra_introducida.length()) > 1) {
-    const int kTerminos{int(palabra_introducida.length())};
-    std::string palabra_invertida(palabra_introducida.rbegin(), palabra_introducida.rend());
-    for (int contador{0}; contador < kTerminos; ++contador) {
-      if (palabra_introducida[contador] != palabra_invertida[contador]) {
+  if (int(palabra_introducida.length()) > 2) {
+    const int kTerminos{int(palabra_introducida.length()) - 1};
+    for (int contador{0}; contador < kTerminos / 2; contador++) {
+      if (palabra_introducida[contador] != palabra_introducida[kTerminos - contador]) {
         return false;
       }
+    }
+  } else if (int(palabra_introducida.length()) == 2) {
+    if (palabra_introducida[0] != palabra_introducida[1]) {
+      return false;
     }
   }
   return true;
